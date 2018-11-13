@@ -1,0 +1,42 @@
+#calculate intermolecular energy between NMA and H2O
+#you have to copy the energy of monomers and dimer from .out file separately
+#you will see six energy, the more-time-cost  nearing energy is right energy that calculate in bigger basis.
+start nma-dimer
+print low
+geometry noautosym noautoz
+H         -2.1849474146        0.5076216918       -0.7446906955
+O         -1.6142212420        0.4292415780        0.0256319513
+H         -0.7073924810        0.3684447620       -0.3293084261
+C          1.8050537819       -0.2117995045        0.3407497127
+O          1.1277027387        0.1831216168       -0.6075217257
+N          3.1603471969       -0.1475369273        0.3100586531
+H          3.6825376346       -0.4958933228        1.0971981907
+C          1.1826537170       -0.8102545784        1.5855512306
+H          1.8791590650       -0.8759130921        2.4242457882
+H          0.3152139962       -0.2150630205        1.8732422204
+H          0.8212289020       -1.8148242400        1.3485893161
+C          3.8811567249        0.3742885753       -0.8441340378
+H          3.7941511713       -0.2967506605       -1.7031232552
+H          3.4771975458        1.3468801350       -1.1303070236
+H          4.9333204915        0.4852124048       -0.5810974102
+end
+basis
+  H library cc-pvtz
+  O library cc-pvtz
+  N library cc-pvtz
+  C library cc-pvtz
+BqH library cc-pvtz
+BqO library cc-pvtz
+BqN library cc-pvtz
+BqC library cc-pvtz
+end
+dft
+  xc xcamb88 1.00 lyp 0.81 vwn_5 0.19 hfexch 1.00
+  cam 0.33 cam_alpha 0.19 cam_beta 0.46
+  direct
+end
+bsse
+ mon first 1 2 3
+ mon second 4 5 6 7 8 9 10 11 12 13 14 15
+end
+task dft energy
