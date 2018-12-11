@@ -1,6 +1,8 @@
 #calculate intermolecular energy between NMA and H2O
 #you have to copy the energy of monomers and dimer from .out file separately
 #you will see six energy, the more-time-cost  nearing energy is right energy that calculate in bigger basis.
+#remenber that if you use supermoleculer energy as total energy, you should using smaller monomer energy as bsse correct.
+#else, you could use bsse-corrected energy and using bigger(that means small basis and no bsse corrected) monomer energ.
 start nma-h2o
 print low
 geometry noautosym noautoz
